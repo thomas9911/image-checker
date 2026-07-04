@@ -1,0 +1,4 @@
+[workspace]
+resolver = "2"
+
+members = ["native/image_checker_revelo"]

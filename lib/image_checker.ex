@@ -4,7 +4,9 @@ defmodule ImageChecker do
   """
 
   @spec info(binary) :: {:ok, map} | {:error, any}
-  defdelegate info(file), to: ImageChecker.Backend.ReveloCli
+  def info(file) do
+    backend().info(file)
+  end
 
   @spec check(binary, binary) :: {:ok, boolean} | {:error, any}
   def check(file) do
@@ -43,4 +45,8 @@ defmodule ImageChecker do
   defp to_format("WEBM"), do: "WebM"
   defp to_format("JPG"), do: "JPEG"
   defp to_format(other), do: other
+
+  defp backend do
+    Application.get_env(:image_checker, :backend, ImageChecker.Backend.ReveloBindings)
+  end
 end

@@ -1,0 +1,13 @@
+[package]
+name = "image_checker_revelo"
+version = "0.1.0"
+authors = []
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+revelo = "0.5.1"
+revelo-export = "0.5.1"
+rustler = "0.38.0"
